@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<input id="name" placeholder="Name" />
+<input id="email" placeholder="Email" />
+<input id="password" type="password" placeholder="Password" />
+<button onclick="register()">Register</button>
+
+<script>
+async function register() {
+  await fetch("http://localhost:5000/api/users/register", {
+    method: "POST",
+    headers: {"Content-Type": "application/json"},
+    body: JSON.stringify({
+      name: name.value,
+      email: email.value,
+      password: password.value
+    })
+  });
+  alert("Registered!");
+}
+</script>
